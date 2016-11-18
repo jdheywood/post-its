@@ -1,25 +1,27 @@
-# README #
+# post-its
 
-This README would normally document whatever steps are necessary to get your application up and running.
+> demo vue project
 
-### What is this repository for? ###
+## Build Setup
 
-* Demo vue application
-* 0.0.1
+``` bash
+# install dependencies
+npm install
 
-### How do I get set up? ###
+# serve with hot reload at localhost:8080
+npm run dev
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
+# build for production with minification
+npm run build
 
-### Contribution guidelines ###
+# run unit tests
+npm run unit
 
-* No contribs, demo just for fun
+# run e2e tests
+npm run e2e
 
-### Who do I talk to? ###
+# run all tests
+npm test
+```
 
-* jdheywood
+For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
