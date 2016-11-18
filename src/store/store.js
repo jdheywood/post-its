@@ -5,63 +5,63 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    todos: [],
-    newTodo: ''
+    notes: [],
+    newNote: ''
   },
 
   mutations: {
-    GET_TODO (state, todo) {
-      state.newTodo = todo
+    GET_NOTE (state, note) {
+      state.newNote = note
     },
-    ADD_TODO (state) {
-      state.todos.push({
-        body: state.newTodo,
-        completed: false
+    ADD_NOTE (state) {
+      state.notes.push({
+        body: state.newNote,
+        archived: false
       })
     },
-    EDIT_TODO (state, todo) {
-      var todos = state.todos
-      todos.splice(todos.indexOf(todo), 1)
-      state.todos = todos
-      state.newTodo = todo.body
+    EDIT_NOTE (state, note) {
+      var notes = state.notes
+      notes.splice(notes.indexOf(note), 1)
+      state.notes = notes
+      state.newNote = note.body
     },
-    REMOVE_TODO (state, todo) {
-      var todos = state.todos
-      todos.splice(todos.indexOf(todo), 1)
+    REMOVE_NOTE (state, note) {
+      var notes = state.notes
+      notes.splice(notes.indexOf(note), 1)
     },
-    COMPLETE_TODO (state, todo) {
-      todo.completed = !todo.completed
+    ARCHIVE_NOTE (state, note) {
+      note.archived = !note.archived
     },
-    CLEAR_TODO (state) {
-      state.newTodo = ''
+    CLEAR_NOTE (state) {
+      state.newNote = ''
     }
   },
 
   actions: {
-    getTodo ({commit}, todo) {
-      commit('GET_TODO', todo)
+    getNote ({commit}, note) {
+      commit('GET_NOTE', note)
     },
-    addTodo ({commit}) {
-      commit('ADD_TODO')
+    addNote ({commit}) {
+      commit('ADD_NOTE')
     },
-    editTodo ({commit}, todo) {
-      commit('EDIT_TODO', todo)
+    editNote ({commit}, note) {
+      commit('EDIT_NOTE', note)
     },
-    removeTodo ({commit}, todo) {
-      commit('REMOVE_TODO', todo)
+    removeNote ({commit}, note) {
+      commit('REMOVE_NOTE', note)
     },
-    completeTodo ({commit}, todo) {
-      commit('COMPLETE_TODO', todo)
+    archiveNote ({commit}, note) {
+      commit('ARCHIVE_NOTE', note)
     },
-    clearTodo ({commit}) {
-      commit('CLEAR_TODO')
+    clearNote ({commit}) {
+      commit('CLEAR_NOTE')
     }
   },
 
   getters: {
-    newTodo: state => state.newTodo,
-    todos: state => state.todos.filter((todo) => { return !todo.completed }),
-    completedTodos: state => state.todos.filter((todo) => { return todo.completed })
+    newNote: state => state.newNote,
+    notes: state => state.notes.filter((note) => { return !note.archived }),
+    archivedNotes: state => state.notes.filter((note) => { return note.archived })
   }
 
 })

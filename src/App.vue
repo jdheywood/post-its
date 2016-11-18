@@ -1,20 +1,20 @@
 <template>
   <div id="app" class="container">
-    <CompletedTodos></CompletedTodos>
-    <GetTodo></GetTodo>
-    <CurrentTodos></CurrentTodos>
+    <GetNote></GetNote>
+    <CurrentNotes></CurrentNotes>
+    <ArchivedNotes></ArchivedNotes>
   </div>
 </template>
 
 <script>
-import GetTodo from './components/GetTodo.vue'
-import CurrentTodos from './components/CurrentTodos.vue'
-import CompletedTodos from './components/CompletedTodos.vue'
+import GetNote from './components/GetNote.vue'
+import CurrentNotes from './components/CurrentNotes.vue'
+import ArchivedNotes from './components/ArchivedNotes.vue'
 export default {
   components: {
-    GetTodo,
-    CurrentTodos,
-    CompletedTodos
+    GetNote,
+    CurrentNotes,
+    ArchivedNotes
   }
 }
 </script>
