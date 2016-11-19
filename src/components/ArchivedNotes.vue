@@ -3,7 +3,8 @@
     <h3 v-if="archived.length > 0">Archived ({{archived.length}})</h3>
     <ul class="list-group">
       <li class="list-group-item" v-for="note in archived">
-        {{note.body}}
+        <p>{{note.body}}</p>
+        <span class="created">(Created {{note.created | moment}})</span>
         <div class="btn-group">
           <button type="button" @click="remove(note)" class="btn btn-default btn-sm">
             <span class="glyphicon glyphicon-remove-circle"></span> Remove
@@ -14,15 +15,24 @@
   </div>
 </template>
 <script>
+  import moment from 'moment'
   export default{
     methods: {
       remove (note) {
         this.$store.dispatch('removeNote', note)
+      },
+      moment: function () {
+        return moment()
       }
     },
     computed: {
       archived () {
         return this.$store.getters.archivedNotes
+      }
+    },
+    filters: {
+      moment: function (date) {
+        return moment(date).fromNow()
       }
     }
   }

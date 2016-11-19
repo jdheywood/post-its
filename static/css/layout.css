@@ -17,3 +17,13 @@ body {
 #archived-notes ul li {
     background-color: #c6e7ef;
 }
+
+ul li span.created {
+    padding-left: 10px;
+    font-size: 12px;
+    font-weight: 300;
+}
+
+.container {
+    min-width: 470px;
+}

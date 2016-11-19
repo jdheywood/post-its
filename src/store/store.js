@@ -16,7 +16,8 @@ export default new Vuex.Store({
     ADD_NOTE (state) {
       state.notes.push({
         body: state.newNote,
-        archived: false
+        archived: false,
+        created: new Date()
       })
     },
     EDIT_NOTE (state, note) {

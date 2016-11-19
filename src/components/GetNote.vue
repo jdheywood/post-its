@@ -15,8 +15,10 @@
         this.$store.dispatch('getNote', e.target.value)
       },
       addNote () {
-        this.$store.dispatch('addNote')
-        this.$store.dispatch('clearNote')
+        if (this.$store.state.newNote.length > 0) {
+          this.$store.dispatch('addNote')
+          this.$store.dispatch('clearNote')
+        }
       }
     },
     computed: {
