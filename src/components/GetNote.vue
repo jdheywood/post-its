@@ -4,7 +4,7 @@
     <input class="form-control"
            :value="newNote"
            @change="getNote"
-           placeholder="Description...">
+           placeholder="Type your note here...">
     <button class="btn btn-primary pull-right" @click="addNote">Add Note</button>
   </div>
 </template>

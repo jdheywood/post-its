@@ -12,18 +12,25 @@ body {
 
 #current-notes ul li {
     background-color: #e0f7f9;
+    display: inline-block;
+    width: 100%;
 }
 
 #archived-notes ul li {
     background-color: #c6e7ef;
+    display: inline-block;
+    width: 100%;
 }
 
 ul li span.created {
-    padding-left: 10px;
     font-size: 12px;
     font-weight: 300;
 }
 
 .container {
     min-width: 470px;
+}
+
+.btn-group {
+    padding-bottom: 10px;
 }
