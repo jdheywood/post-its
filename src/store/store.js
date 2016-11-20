@@ -1,11 +1,14 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import unique from './unique'
 
 Vue.use(Vuex)
 
+const STORAGE_KEY = 'notes-app'
+
 export default new Vuex.Store({
   state: {
-    notes: [],
+    notes: JSON.parse(window.localStorage.getItem(STORAGE_KEY) || '[]'),
     newNote: ''
   },
 
@@ -17,21 +20,31 @@ export default new Vuex.Store({
       state.notes.push({
         body: state.newNote,
         archived: false,
-        created: new Date()
+        created: new Date(),
+        id: unique()
       })
+      window.localStorage.setItem(STORAGE_KEY, JSON.stringify(state.notes))
     },
     EDIT_NOTE (state, note) {
-      var notes = state.notes
+      let notes = state.notes
       notes.splice(notes.indexOf(note), 1)
       state.notes = notes
       state.newNote = note.body
+      window.localStorage.setItem(STORAGE_KEY, JSON.stringify(notes))
     },
     REMOVE_NOTE (state, note) {
-      var notes = state.notes
+      let notes = state.notes
       notes.splice(notes.indexOf(note), 1)
+      window.localStorage.setItem(STORAGE_KEY, JSON.stringify(notes))
     },
     ARCHIVE_NOTE (state, note) {
-      note.archived = !note.archived
+      let notes = state.notes
+      for (let index = 0; index < notes.length; ++index) {
+        if (notes[index].id === note.id) {
+          notes[index].archived = !notes[index].archived
+        }
+      }
+      window.localStorage.setItem(STORAGE_KEY, JSON.stringify(notes))
     },
     CLEAR_NOTE (state) {
       state.newNote = ''
