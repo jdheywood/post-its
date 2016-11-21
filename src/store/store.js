@@ -18,7 +18,8 @@ let myUser = { userId: userId, userName: userName, connected: new Date(), status
 window.localStorage.setItem(CONNECTED_KEY, JSON.stringify([myUser]))
 
 const NOTES_KEY = 'user-notes'
-
+// 'ws://54.195.50.227:1234'
+// 'ws://localhost:1234'
 let connection = socket.connect('ws://54.195.50.227:1234', myUser)
 
 let store = new Vuex.Store({
