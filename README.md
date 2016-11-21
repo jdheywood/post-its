@@ -21,7 +21,10 @@ Thanks to https://medium.com/@sagarjauhari/quick-n-clean-way-to-deploy-vue-webpa
 tutorial on deploying just the built app.
 
 Set up your remote in heroku as per normal, then push the subtree of the dist folder like so;
+
+``` bash
 git subtree push --prefix dist heroku master
+```
 
 My hosted app can be found here: http://post-its-demo.herokuapp.com/
 
