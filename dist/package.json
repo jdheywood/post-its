@@ -1,0 +1,10 @@
+{
+  "name": "post-its",
+  "version": "1.0.0",
+  "description": "demo vue project",
+  "author": "jdheywood",
+  "private": true,
+  "scripts": {
+    "postinstall": "npm install express"
+  }
+}

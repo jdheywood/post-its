@@ -1,0 +1,52 @@
+body {
+    padding-bottom: 40px;
+    color: #364347;
+    height: 100%;
+    background: -webkit-linear-gradient(#9ceef5, #e0f7f9);
+    background: -o-linear-gradient(#9ceef5, #e0f7f9);
+    background: -moz-linear-gradient(#9ceef5, #e0f7f9);
+    background: linear-gradient(#9ceef5, #e0f7f9);
+    background-attachment: fixed;
+    overflow-y: scroll;
+}
+
+#current-notes ul li {
+    background-color: #e0f7f9;
+    display: inline-block;
+    width: 100%;
+}
+
+#archived-notes ul li {
+    background-color: #c6e7ef;
+    display: inline-block;
+    width: 100%;
+}
+
+#connected-users ul li {
+    background-color: #c7ddf1;
+    display: inline-block;
+    width: 100%;
+}
+
+#connected-users ul li.list-group-item:first-child p,
+#connected-users ul li.list-group-item:first-child span {
+    color: #ca7676;
+}
+
+ul li span.created,
+ul li p.user {
+    font-size: 12px;
+    font-weight: 300;
+}
+
+ul li  p.user {
+    margin: 5px 0;
+}
+
+.container {
+    min-width: 470px;
+}
+
+.btn-group {
+    padding-bottom: 10px;
+}
