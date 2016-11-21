@@ -1,6 +1,7 @@
 # post-its
 
-> demo vue project
+> This is my demo Vue.js project, it is a collaboratiev note taking SPA that makes use of a websocket server to sync 
+notes across connected clients
 
 ## Build Setup
 
@@ -14,14 +15,21 @@ npm run dev
 # build for production with minification
 npm run build
 
-# run unit tests
-npm run unit
+# deploy to hosted environment (Heroku)
+Thanks to https://medium.com/@sagarjauhari/quick-n-clean-way-to-deploy-vue-webpack-apps-on-heroku-b522d3904bc8 for the 
+tutorial on deploying just the built app.
 
-# run e2e tests
-npm run e2e
+Set up your remote in heroku as per normal, then push the subtree of the dist folder like so;
+git subtree push --prefix dist heroku master
 
-# run all tests
-npm test
+My hosted app can be found here: http://post-its-demo.herokuapp.com/
+
+# websocket server
+This application connects to a websocket server, a simple echo is all that is needed for basic functionality, however I
+have built a server that persist some data to prevent total loss of notes if no-one is online or everyone clears their 
+local storage, that lives in the following related repo: https://github.com/jdheywood/post-its-websocket-server
+
+The hosted socket server can be found here: http://post-its-socket-server-demo.herokuapp.com/
+
+
 ```
-
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
