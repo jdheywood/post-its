@@ -26,5 +26,5 @@
         return this.$store.getters.newNote
       }
     }
-}
+  }
 </script>

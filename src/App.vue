@@ -3,20 +3,23 @@
     <GetNote></GetNote>
     <CurrentNotes></CurrentNotes>
     <ArchivedNotes></ArchivedNotes>
+    <ConnectedUsers></ConnectedUsers>
   </div>
 </template>
 
 <script>
-import GetNote from './components/GetNote.vue'
-import CurrentNotes from './components/CurrentNotes.vue'
-import ArchivedNotes from './components/ArchivedNotes.vue'
-export default {
-  components: {
-    GetNote,
-    CurrentNotes,
-    ArchivedNotes
+  import GetNote from './components/GetNote.vue'
+  import CurrentNotes from './components/CurrentNotes.vue'
+  import ArchivedNotes from './components/ArchivedNotes.vue'
+  import ConnectedUsers from './components/ConnectedUsers.vue'
+  export default {
+    components: {
+      GetNote,
+      CurrentNotes,
+      ArchivedNotes,
+      ConnectedUsers
+    }
   }
-}
 </script>
 
 <style>

@@ -22,9 +22,25 @@ body {
     width: 100%;
 }
 
-ul li span.created {
+#connected-users ul li {
+    background-color: #c7ddf1;
+    display: inline-block;
+    width: 100%;
+}
+
+#connected-users ul li.list-group-item:first-child p,
+#connected-users ul li.list-group-item:first-child span {
+    color: #ca7676;
+}
+
+ul li span.created,
+ul li p.user {
     font-size: 12px;
     font-weight: 300;
+}
+
+ul li  p.user {
+    margin: 5px 0;
 }
 
 .container {

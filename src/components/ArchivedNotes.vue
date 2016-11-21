@@ -4,6 +4,7 @@
     <ul class="list-group">
       <li class="list-group-item" v-for="note in archived">
         <p>{{note.body}}</p>
+        <p class="user">(User {{note.user}})</p>
         <span class="created">(Created {{note.created | moment}})</span>
         <div class="btn-group">
           <button type="button" @click="remove(note)" class="btn btn-default btn-sm">
