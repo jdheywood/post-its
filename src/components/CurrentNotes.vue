@@ -4,8 +4,7 @@
     <ul class="list-group">
       <li class="list-group-item" v-for="note in notes">
         <p>{{note.body}}</p>
-        <p class="user">(User {{note.user}})</p>
-        <span class="created">(Created {{note.created | moment}})</span>
+        <p class="user">(Created by {{note.userName}}, {{note.created | moment}})</p>
         <div class="btn-group">
           <button type="button" @click="edit(note)" class="btn btn-default btn-sm">
             <span class="glyphicon glyphicon-edit"></span> Edit

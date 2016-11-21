@@ -6,11 +6,15 @@ import socket from './socket.js'
 Vue.use(Vuex)
 
 const USER_KEY = 'user-identifier'
-let userId = window.localStorage.getItem(USER_KEY) || unique()
+let userId = window.localStorage.getItem(USER_KEY) || unique.identifier()
 window.localStorage.setItem(USER_KEY, userId)
 
+const USER_NAME_KEY = 'user-name'
+let userName = window.localStorage.getItem(USER_NAME_KEY) || unique.name()
+window.localStorage.setItem(USER_NAME_KEY, userName)
+
 const CONNECTED_KEY = 'users-connected'
-let myUser = { userId: userId, connected: new Date(), status: 'connected' }
+let myUser = { userId: userId, userName: userName, connected: new Date(), status: 'connected' }
 window.localStorage.setItem(CONNECTED_KEY, JSON.stringify([myUser]))
 
 const NOTES_KEY = 'user-notes'
@@ -20,6 +24,7 @@ let connection = socket.connect('ws://54.195.50.227:1234', myUser)
 let store = new Vuex.Store({
   state: {
     userId: userId,
+    userName: userName,
     notes: JSON.parse(window.localStorage.getItem(NOTES_KEY) || '[]'),
     newNote: '',
     editingId: '',
@@ -36,8 +41,9 @@ let store = new Vuex.Store({
         body: state.newNote,
         archived: false,
         created: new Date(),
-        id: state.editingId || unique(),
+        id: state.editingId || unique.identifier(),
         user: state.userId,
+        userName: state.userName,
         removed: false
       }
       state.notes.push(newNote)
@@ -124,6 +130,7 @@ connection.onmessage = function (message) {
   // try to parse JSON message. to make sure message is not chunked or otherwise damaged
   try {
     let incoming = JSON.parse(message.data)
+    // if user message
     if (incoming.userId) {
       let users = store.state.connectedUsers
       let userExists = false
@@ -143,6 +150,7 @@ connection.onmessage = function (message) {
         }
       }
     } else {
+      // note message
       let incomingNote = incoming
       let notes = store.state.notes
       let exists = false

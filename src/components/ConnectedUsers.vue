@@ -3,7 +3,7 @@
     <h3 v-if="users.length > 0">Connected ({{users.length}})</h3>
     <ul class="list-group">
       <li class="list-group-item" v-for="user in users">
-        <p>{{user.userId}}</p>
+        <p>{{user.userName}}</p>
         <span class="connected">(Connected {{user.connected | moment}})</span>
       </li>
     </ul>
