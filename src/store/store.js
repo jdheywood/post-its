@@ -18,10 +18,12 @@ let myUser = { userId: userId, userName: userName, connected: new Date(), status
 window.localStorage.setItem(CONNECTED_KEY, JSON.stringify([myUser]))
 
 const NOTES_KEY = 'user-notes'
+let localNotes = JSON.parse(window.localStorage.getItem(NOTES_KEY)) || []
+
 // 'ws://54.195.50.227:1234'
 // 'ws://localhost:1234'
 // 'ws://http://post-its-socket-server-demo.herokuapp.com:1234'
-let connection = socket.connect('ws://localhost:1234', myUser)
+let connection = socket.connect('ws://localhost:1234', myUser, localNotes)
 
 let store = new Vuex.Store({
   state: {
@@ -143,13 +145,18 @@ connection.onmessage = function (message) {
       }
       if (!userExists) {
         store.state.connectedUsers.push(incoming)
-        // and push out my user again so the new connected user sees me!
-        connection.send(JSON.stringify(myUser))
-        // and push out notes too?
-        let notes = store.state.notes
-        for (let index = 0; index < notes.length; index++) {
-          connection.send(JSON.stringify(notes[index]))
-        }
+
+        // No longer need to push out from here as the socket server takes care of this
+        // left code here to show distributed implementation
+
+        // Push out my user again so the new connected user sees me!
+        // connection.send(JSON.stringify(myUser))
+        // Push out notes too, client side distribution flawed as relies on at least one client staying connected
+        // also if everyone clears local storage there is nothing left to sync and all notes are lost
+        // let notes = store.state.notes
+        // for (let index = 0; index < notes.length; index++) {
+          // connection.send(JSON.stringify(notes[index]))
+        // }
       }
     } else {
       // note message

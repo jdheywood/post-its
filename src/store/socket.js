@@ -1,6 +1,6 @@
 let WebSocket = window.WebSocket || window.MozWebSocket
 
-exports.connect = function (server, user) {
+exports.connect = function (server, user, notes) {
   if (!WebSocket) {
     console.log('Please use a newer browser to access collaboration features.')
   } else {
@@ -9,7 +9,13 @@ exports.connect = function (server, user) {
 
     connection.onopen = function () {
       console.log('Connection to socket server opened.')
+      // Send user, and any notes held locally so the socket server can store to distribute to future new connections
       connection.send(JSON.stringify(user))
+      if (notes && notes.length() > 0) {
+        for (let index = 0; index < notes.length; index++) {
+          connection.send(JSON.stringify(notes[index]))
+        }
+      }
     }
 
     connection.onerror = function (error) {
