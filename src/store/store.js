@@ -15,7 +15,7 @@ window.localStorage.setItem(USER_NAME_KEY, userName)
 
 const CONNECTED_KEY = 'users-connected'
 let myUser = { userId: userId, userName: userName, connected: new Date(), status: 'connected' }
-window.localStorage.setItem(CONNECTED_KEY, JSON.stringify(myUser))
+window.localStorage.setItem(CONNECTED_KEY, JSON.stringify([myUser]))
 
 const NOTES_KEY = 'user-notes'
 // 'ws://54.195.50.227:1234'
