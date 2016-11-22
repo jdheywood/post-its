@@ -35,5 +35,8 @@ local storage, that lives in the following related repo: https://github.com/jdhe
 
 The hosted socket server can be found here: http://post-its-socket-server-demo.herokuapp.com/
 
+## Thoughts on the process
 
+You can read my rambling thoughts on how I put this on the wiki page here: https://github.com/jdheywood/post-its/wiki
 
+Enjoy
