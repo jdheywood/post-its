@@ -37,6 +37,6 @@ The hosted socket server can be found here: http://post-its-socket-server-demo.h
 
 ## Thoughts on the process
 
-You can read my rambling thoughts on how I put this on the wiki page here: https://github.com/jdheywood/post-its/wiki
+You can read my rambling thoughts on how I put this project together on the wiki page here: https://github.com/jdheywood/post-its/wiki
 
 Enjoy
