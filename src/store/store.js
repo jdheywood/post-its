@@ -23,7 +23,7 @@ let localNotes = JSON.parse(window.localStorage.getItem(NOTES_KEY)) || []
 // 'ws://54.195.50.227:1234'
 // 'ws://localhost:1234'
 // 'ws://post-its-socket-server-demo.herokuapp.com:1234'
-let connection = socket.connect('ws://post-its-socket-server-demo.herokuapp.com:1234', myUser, localNotes)
+let connection = socket.connect('ws://54.195.50.227:1234', myUser, localNotes)
 
 let store = new Vuex.Store({
   state: {
