@@ -150,13 +150,13 @@ connection.onmessage = function (message) {
         // left code here to show distributed implementation
 
         // Push out my user again so the new connected user sees me!
-        // connection.send(JSON.stringify(myUser))
+        connection.send(JSON.stringify(myUser))
         // Push out notes too, client side distribution flawed as relies on at least one client staying connected
         // also if everyone clears local storage there is nothing left to sync and all notes are lost
-        // let notes = store.state.notes
-        // for (let index = 0; index < notes.length; index++) {
-          // connection.send(JSON.stringify(notes[index]))
-        // }
+        let notes = store.state.notes
+        for (let index = 0; index < notes.length; index++) {
+          connection.send(JSON.stringify(notes[index]))
+        }
       }
     } else {
       // note message
