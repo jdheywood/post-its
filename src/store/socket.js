@@ -11,7 +11,7 @@ exports.connect = function (server, user, notes) {
       console.log('Connection to socket server opened.')
       // Send user, and any notes held locally so the socket server can store to distribute to future new connections
       connection.send(JSON.stringify(user))
-      if (notes && notes.length() > 0) {
+      if (notes && notes.length > 0) {
         for (let index = 0; index < notes.length; index++) {
           connection.send(JSON.stringify(notes[index]))
         }
