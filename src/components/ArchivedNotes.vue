@@ -1,17 +1,19 @@
 <template>
   <div id="archived-notes" class="container row">
-    <h3 v-if="archived.length > 0">Archived ({{archived.length}})</h3>
-    <ul class="list-group">
-      <li class="list-group-item" v-for="note in archived">
-        <p>{{note.body}}</p>
-        <p class="user">(Created by {{note.userName}}, {{note.created | moment}})</p>
-        <div class="btn-group">
-          <button type="button" @click="remove(note)" class="btn btn-default btn-sm">
-            <span class="glyphicon glyphicon-remove-circle"></span> Remove
-          </button>
-        </div>
-      </li>
-    </ul>
+    <div class="col-md-12">
+      <h3 v-if="archived.length > 0">Archived ({{archived.length}})</h3>
+      <ul class="list-group">
+        <li class="list-group-item" v-for="note in archived">
+          <p>{{note.body}}</p>
+          <p class="user">(Created by {{note.userName}}, {{note.created | moment}})</p>
+          <div class="btn-group">
+            <button type="button" @click="remove(note)" class="btn btn-default btn-sm">
+              <span class="glyphicon glyphicon-remove-circle"></span> Remove
+            </button>
+          </div>
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 <script>

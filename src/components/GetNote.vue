@@ -1,11 +1,13 @@
 <template>
   <div id="get-note" class="container row">
-    <h3>New Note</h3>
-    <input class="form-control"
-           :value="newNote"
-           @change="getNote"
-           placeholder="Type your note here...">
-    <button class="btn btn-primary pull-right" @click="addNote">Add Note</button>
+    <div class="col-md-12">
+      <h3>New Note</h3>
+      <input class="form-control"
+             :value="newNote"
+             @change="getNote"
+             placeholder="Type your note here...">
+      <button class="btn btn-primary pull-right" @click="addNote">Add Note</button>
+    </div>
   </div>
 </template>
 <script>

@@ -29,6 +29,11 @@ exports.connect = function (server, user, notes) {
       }
     }, 3000)
 
+    // TODO implement check on user last activity datetime, if >= timeout period remove from connected users in state
+    setInterval(function () {
+      console.log('Timing out users...')
+    }, 30000)
+
     return connection
   }
 }

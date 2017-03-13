@@ -14,7 +14,7 @@ let userName = window.localStorage.getItem(USER_NAME_KEY) || unique.name()
 window.localStorage.setItem(USER_NAME_KEY, userName)
 
 const CONNECTED_KEY = 'users-connected'
-let myUser = { userId: userId, userName: userName, connected: new Date(), status: 'connected' }
+let myUser = { userId: userId, userName: userName, connected: new Date(), status: 'connected', lastActivity: new Date() }
 window.localStorage.setItem(CONNECTED_KEY, JSON.stringify([myUser]))
 
 const NOTES_KEY = 'user-notes'
@@ -188,6 +188,8 @@ connection.onmessage = function (message) {
         notes.splice(position, 1, incomingNote)
       }
       window.localStorage.setItem(NOTES_KEY, JSON.stringify(notes))
+      // TODO reset the last activity datetime of the user so their time to timeout is restarted
+      console.log('Resetting last activity datetime of user')
     }
   } catch (e) {
     console.log('Error, either a bug or this isn\'t valid JSON: ', message.data)

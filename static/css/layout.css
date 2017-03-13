@@ -11,13 +11,13 @@ body {
 }
 
 #current-notes ul li {
-    background-color: #e0f7f9;
+    background-color: #ffff00;
     display: inline-block;
     width: 100%;
 }
 
 #archived-notes ul li {
-    background-color: #c6e7ef;
+    background-color: #ff69b4;
     display: inline-block;
     width: 100%;
 }
@@ -44,9 +44,21 @@ ul li  p.user {
 }
 
 .container {
-    min-width: 470px;
+    max-width: 500px;
 }
 
 .btn-group {
     padding-bottom: 10px;
+}
+
+@media (min-width: 768px) {
+    .container {
+        max-width: 700px;
+    }
+}
+
+@media (min-width: 992px) {
+    .container {
+        max-width: 900px;
+    }
 }
